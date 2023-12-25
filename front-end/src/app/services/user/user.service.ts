@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { AuthResponseDTO } from '../../interfaces/auth-response-dto';
 import { UserDTO } from '../../interfaces/user-dto';
 import { Router } from '@angular/router'
+import { environment } from '../../environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  private baseUrl = 'http://frontend:9090/api/users';
+  private baseUrl = `${environment.backendUrl}/api/users`;
 
 
   generateAndDownloadUsers(count: number): Observable<void> {
@@ -33,7 +33,7 @@ export class UserService {
     );
   }
 
-  getPaginatedUsersTotalPages(page: number, size: number):Observable<any>{
+  getPaginatedUsersTotalPages(page: number, size: number): Observable<any> {
     const headers = this.getHeaders();
     return this.httpClient.get<any>(`${this.baseUrl}/getUsers?page=${page}&size=${size}`, { headers }).pipe(
       map((page: any) => page.totalPages)

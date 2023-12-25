@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthResponseDTO } from '../../interfaces/auth-response-dto';
-
+import { environment } from '../../environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://frontend:9090/api/auth';
+  private baseUrl = `${environment.backendUrl}/api/auth`;
   constructor(private httpClient: HttpClient) { }
 
   authenticateUser(authenticationRequest: any): Observable<AuthResponseDTO> {
