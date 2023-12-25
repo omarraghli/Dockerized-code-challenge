@@ -6,8 +6,6 @@ services:
     container_name: backend
     ports:
       - 9090:9090
-    environment:
-      - BACKEND_URL=http://backend:9090
 
   frontend:
     image: sajitsu/code-challenge-front:1.1
@@ -16,5 +14,3 @@ services:
       - "4200:4200"
     depends_on:
       - backend
-    environment:
-      - BACKEND_URL=http://backend:9090
