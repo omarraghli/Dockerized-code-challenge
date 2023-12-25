@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  backend:
+    image: sajitsu/code-challenge-back:1.0
+    container_name: backend
+    ports:
+      - 9090:9090
+
+  frontend:
+    image: sajitsu/code-challenge-front:1.0
+    container_name: frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend

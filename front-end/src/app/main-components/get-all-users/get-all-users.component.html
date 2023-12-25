@@ -1,0 +1,7 @@
+<div class="overflow-x-scroll">
+    <app-data-table [user]="users"></app-data-table>
+</div>
+
+<div class="flex items-center justify-center">
+    <button *ngFor="let item of [].constructor(this.totalPages); let i = index" class="m-2" (click)="fetchUsers(i)">{{i+1}}</button>
+</div>

@@ -1,0 +1,35 @@
+<nav class="bg-gray-200">
+  <div class="container mx-auto flex justify-between items-center max-w-7xl">
+    <button class="w-[153px] h-[75px]" routerLink="/home"><img src="/assets/images/cires-logo.png "></button>
+    <div class="flex space-x-4">
+
+      <div class="relative" (mouseenter)="openAdminPanel()" (mouseleave)="closeAdminPanel()"
+        *ngIf="isUserConnected() && isUserAdmin()">
+        <button class="text-[#031c2d] hover:text-[#fba924] transition duration-300 font-semibold">
+          Admin
+        </button>
+        <div class=" absolute top-4 left-0 mt-2 w-48 rounded-md shadow-lg bg-white">
+          <div *ngIf="isAdminPanelOpen">
+            <a routerLink="/search-user" class="font-normal text-base block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Search a user
+            </a>
+            <a routerLink="/get-all-users"
+              class="font-normal text-base block px-4 py-2 text-gray-700 hover:bg-gray-100">
+              Get all users
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a routerLink="/import-user"
+        class="text-[#031c2d] hover:text-[#fba924] transition duration-300 font-semibold">Import Users</a>
+
+      <a routerLink="/me" *ngIf="isUserConnected()"
+        class="text-[#031c2d] hover:text-[#fba924] transition duration-300 font-semibold">My profile</a>
+      <a *ngIf="!isUserConnected()" routerLink="/login"
+        class="text-[#031c2d] hover:text-[#fba924] transition duration-300 font-semibold">Login</a>
+      <button *ngIf="isUserConnected()" (click)="logout()"
+        class="text-[#031c2d] hover:text-[#fba924] transition duration-300 font-semibold">Logout</button>
+    </div>
+  </div>
+</nav>

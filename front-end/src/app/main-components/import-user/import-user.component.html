@@ -1,0 +1,41 @@
+<!-- import-user.component.html -->
+<div class="flex items-center justify-center my-10">
+    <div class="bg-gray-100 p-8 rounded-lg shadow-md w-96">
+        <div class="flex justify-center mb-2">
+            <span class="text-center">{{ selectedFile?.name }}</span>
+        </div>
+
+        <input type="file" id="fileInput" class="hidden" (change)="onFileSelected($event)" />
+        <label for="fileInput"
+            class="block text-center bg-[#031c2d] text-white font-bold py-2 px-4 rounded cursor-pointer mb-4">
+            Choose File
+        </label>
+        <div class="flex justify-center">
+            <button class="bg-[#fba924] text-white font-bold py-2 px-4 rounded cursor-pointer " (click)="uploadFile()">
+                {{ !uploading ? 'Import users' : 'Uploading...' }}
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="importSummary" class="flex flex-col items-center justify-center bg-gray-200 p-6 rounded-md shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Import Summary</h2>
+    <div class="flex justify-start">
+        <p class="text-lg font-semibold mr-2">Failed Import Records:</p>
+        <p class="text-xl">{{ importSummary.failedImportRecords }}</p>
+    </div>
+    <div class="flex justify-start">
+        <p class="text-lg font-semibold mr-2">Imported Records:</p>
+        <p class="text-xl">{{ importSummary.importedRecords }}</p>
+    </div>
+    <div class="flex justify-start">
+        <p class="text-lg font-semibold mr-2">Total Records Processed:</p>
+        <p class="text-xl">{{ importSummary.totalRecords }}</p>
+    </div>
+</div>
+
+<!-- Add this -->
+<div *ngIf="uploading" class="flex items-center justify-center mt-4">
+    <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#fba924]"></div>
+</div>

@@ -1,0 +1,32 @@
+<div class="mx-auto mt-8">
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">First Name</th>
+          <th class="py-2 px-4 border-b">Last Name</th>
+          <th class="py-2 px-4 border-b">Birth Date</th>
+          <th class="py-2 px-4 border-b">City</th>
+          <th class="py-2 px-4 border-b">Country</th>
+          <th class="py-2 px-4 border-b">Company</th>
+          <th class="py-2 px-4 border-b">Job Position</th>
+          <th class="py-2 px-4 border-b">Mobile</th>
+          <th class="py-2 px-4 border-b">Username</th>
+          <th class="py-2 px-4 border-b">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userData of user">
+          <td class="py-2 px-4 border-b">{{ userData.firstName }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.lastName }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.birthDate | date }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.city }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.country }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.company }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.jobPosition }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.mobile }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.username }}</td>
+          <td class="py-2 px-4 border-b">{{ userData.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
