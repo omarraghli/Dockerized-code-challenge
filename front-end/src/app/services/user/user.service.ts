@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  private baseUrl = 'http://localhost:9090/api/users';
+  private baseUrl = 'http://frontend:9090/api/users';
 
 
   generateAndDownloadUsers(count: number): Observable<void> {

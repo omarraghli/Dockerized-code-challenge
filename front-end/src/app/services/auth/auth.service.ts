@@ -8,7 +8,7 @@ import { AuthResponseDTO } from '../../interfaces/auth-response-dto';
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:9090/api/auth';
+  private baseUrl = 'http://frontend:9090/api/auth';
   constructor(private httpClient: HttpClient) { }
 
   authenticateUser(authenticationRequest: any): Observable<AuthResponseDTO> {
