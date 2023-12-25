@@ -10,7 +10,7 @@ services:
       - BACKEND_URL=http://backend:9090
 
   frontend:
-    image: sajitsu/code-challenge-front:1.0
+    image: sajitsu/code-challenge-front:1.1
     container_name: frontend
     ports:
       - "4200:4200"
